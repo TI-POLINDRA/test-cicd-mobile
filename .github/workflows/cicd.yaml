@@ -13,24 +13,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Flutter
+      - name: Set up Flutter (3.29.2)
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.13.0'  # Or newer (e.g., '3.16.0')
+          flutter-version: '3.29.2'  # Match your local version
           cache: true
 
-      - name: Validate Flutter installation
-        run: flutter --version
-
-      - name: Get dependencies
-        run: flutter pub get
-      
-      - name: Regenerate Android files (if missing)
-        run: flutter create --platforms android .
-
+      - name: Validate Flutter & Dart versions
+        run: |
+          flutter --version
+          dart --version
       - name: Run build APK
         run: flutter build apk --release
 
