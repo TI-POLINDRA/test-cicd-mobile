@@ -14,16 +14,16 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.7.2' # Sesuaikan dengan versi Flutter yang diinginkan
+          flutter-version: '3.7.2'
           cache: true
 
-      - name: Check Flutter & Dart version
-        run: flutter doctor -v
+      - name: Validate Flutter version
+        run: flutter --version
 
       - name: Install dependencies
         run: flutter pub get
