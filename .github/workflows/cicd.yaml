@@ -39,13 +39,13 @@ jobs:
       - name: Rename APK with version
         run: |
           mv build/app/outputs/flutter-apk/app-release.apk \
-             build/app/outputs/flutter-apk/app-release-v${{ env.VERSION_NAME }}.apk
+             build/app/outputs/flutter-apk/app-release-${{ env.VERSION_NAME }}.apk
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
-          name: app-release-v${{ env.VERSION_NAME }}.apk
-          path: build/app/outputs/flutter-apk/app-release-v${{ env.VERSION_NAME }}.apk
+          name: app-release-${{ env.VERSION_NAME }}.apk
+          path: build/app/outputs/flutter-apk/app-release-${{ env.VERSION_NAME }}.apk
 
       - name: Set up Python for Telegram script
         uses: actions/setup-python@v5
