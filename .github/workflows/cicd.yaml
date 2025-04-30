@@ -19,9 +19,8 @@ jobs:
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.7.2'
+          flutter-version: '3.13.0'  # Or newer (e.g., '3.16.0')
           cache: true
-          cache-key: flutter-pub-cache-3.7.2
 
       - name: Validate Flutter installation
         run: flutter --version
